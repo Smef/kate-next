@@ -5,8 +5,8 @@ import kate from "@/assets/images/kate.png";
 import ContentWidthContainer from "./ContentWidthContainer";
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "Art", href: "/art" },
+  { name: "Artist", href: "/artist" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -19,14 +19,14 @@ export default function NavBar() {
             <Image
               className="h-12 w-auto"
               src={kate}
-              height="48"
-              width="48"
               alt="A digital image created by and of the artist"
+              height={48}
+              width={48}
             />
-            <div className="flex flex-col">
+            <span className="flex flex-col">
               <p className="text-xl md:text-2xl">Kate O. Nahodyl</p>
               <p className="font-serif text-base leading-tight md:text-lg">Artist</p>
-            </div>
+            </span>
           </Link>
           <div className="flex md:hidden">
             <button
@@ -38,6 +38,7 @@ export default function NavBar() {
               <Bars3Icon className="h-6 w-6 fill-black" aria-hidden="true" />
             </button>
           </div>
+
           <div className="hidden md:flex md:gap-x-12">
             {navigation.map((item) => (
               <Link key={item.name} href={item.href} className="text-xl leading-6 text-black">
