@@ -77,7 +77,6 @@ export default function Contact() {
           <label
             htmlFor="message"
             className="text-cerulean border-r-2 border-b-2 border-white py-3 pr-3 text-right font-normal md:text-2xl"
-            required
           >
             Message
           </label>

@@ -2,8 +2,6 @@ import Piece from "@/types/Piece";
 import art from "@/assets/art";
 import Image from "next/image";
 
-import testImageSrc from "@/assets/art/cliffside.webp";
-
 // handle identifying all the slugs for a static build
 export async function generateStaticParams() {
   const pieceRoutes = art.map((piece: Piece) => ({
@@ -13,13 +11,11 @@ export async function generateStaticParams() {
   return pieceRoutes;
 }
 
+type Params = Promise<{ slug: string }>;
+// type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+
 // page component
-export default async function ArtPiece({
-  params,
-}: {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
+export default async function ArtPiece({ params }: { params: Params }) {
   const { slug } = await params;
   const piece = art.find((piece: Piece) => piece.slug === slug);
   // If the piece is not found, return a 404 page
